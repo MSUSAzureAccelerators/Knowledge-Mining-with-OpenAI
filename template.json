@@ -5,7 +5,7 @@
        "ResourceSuffix": {
             "type": "string",
             "metadata": {
-            "description": "provide a 2-13 character suffix for all resources."
+            "description": "provide a 3-13 character suffix for all resources."
             }
         },
         "UseRestrictivePrompt": {
