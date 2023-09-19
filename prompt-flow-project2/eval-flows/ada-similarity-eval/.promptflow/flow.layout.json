@@ -1,0 +1,35 @@
+{
+  "nodeLayouts": {
+    "inputs": {
+      "x": 187,
+      "y": 62,
+      "index": -1
+    },
+    "outputs": {
+      "x": 453.265625,
+      "y": 350.828125,
+      "index": -1
+    },
+    "cosine_similarity": {
+      "x": 94,
+      "y": 335.984375,
+      "index": 0
+    },
+    "calculate_accuracy": {
+      "x": 209.2578125,
+      "y": 460.1484375,
+      "index": 1
+    },
+    "embed_groundtruth": {
+      "x": 344.8046875,
+      "y": 179.578125,
+      "index": 2
+    },
+    "embed_prediction": {
+      "x": 106.734375,
+      "y": 179.9765625,
+      "index": 3
+    }
+  },
+  "orientation": "Vertical"
+}

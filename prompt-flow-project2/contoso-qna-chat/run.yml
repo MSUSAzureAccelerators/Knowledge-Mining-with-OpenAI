@@ -1,0 +1,6 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
+flow: .
+data: data.csv
+column_mapping:
+    chat_history: []
+    chat_input: ${data.question}

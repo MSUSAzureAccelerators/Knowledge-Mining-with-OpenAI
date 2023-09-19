@@ -1,0 +1,762 @@
+{
+  "flow_runs": [
+    {
+      "run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_0",
+      "status": "Completed",
+      "error": null,
+      "inputs": {
+        "url": "https://pypi.org/project/keyring/"
+      },
+      "output": {
+        "category": "App",
+        "evidence": "Text content"
+      },
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5",
+      "root_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5",
+      "source_run_id": null,
+      "flow_id": "default_flow_id",
+      "start_time": "2023-08-17T22:40:30.570684Z",
+      "end_time": "2023-08-17T22:40:34.030148Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "fetch_text_content_from_url",
+          "type": "Tool",
+          "inputs": {
+            "url": "https://pypi.org/project/keyring/"
+          },
+          "output": "\n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service",
+          "start_time": 1692337230.571039,
+          "end_time": 1692337231.029253,
+          "error": null,
+          "children": null,
+          "node_name": "fetch_text_content_from_url"
+        },
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nPlease summarize the following text in one paragraph. 100 words.\nDo not add any information that is not in the text.\n\nuser:\nText: {{text}}\nSummary: ",
+            "deployment_name": "mahdi-gpt-35-turbo",
+            "max_tokens": 128,
+            "temperature": 0.2,
+            "text": "\n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service"
+          },
+          "output": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher.",
+          "start_time": 1692337231.029825,
+          "end_time": 1692337233.380434,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://mahdi-openai.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-03-15-preview",
+                "engine": "mahdi-gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "Please summarize the following text in one paragraph. 100 words.\nDo not add any information that is not in the text."
+                  },
+                  {
+                    "role": "user",
+                    "content": "Text: \n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service\nSummary: "
+                  }
+                ],
+                "temperature": 0.2,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 128,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-7ofxHHiDLRDbwlxXouLGjhNVT2fio",
+                "object": "chat.completion",
+                "created": 1692312031,
+                "model": "gpt-35-turbo",
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher."
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 66,
+                  "prompt_tokens": 418,
+                  "total_tokens": 484
+                }
+              },
+              "start_time": 1692337231.030933,
+              "end_time": 1692337233.380282,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "summarize_text_content"
+        },
+        {
+          "name": "prepare_examples",
+          "type": "Tool",
+          "inputs": {},
+          "output": [
+            {
+              "url": "https://play.google.com/store/apps/details?id=com.spotify.music",
+              "text_content": "Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.",
+              "category": "App",
+              "evidence": "Both"
+            },
+            {
+              "url": "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw",
+              "text_content": "NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.",
+              "category": "Channel",
+              "evidence": "URL"
+            },
+            {
+              "url": "https://arxiv.org/abs/2303.04671",
+              "text_content": "Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.",
+              "category": "Academic",
+              "evidence": "Text content"
+            },
+            {
+              "url": "https://ab.politiaromana.ro/",
+              "text_content": "There is no content available for this text.",
+              "category": "None",
+              "evidence": "None"
+            }
+          ],
+          "start_time": 1692337233.383295,
+          "end_time": 1692337233.384315,
+          "error": null,
+          "children": null,
+          "node_name": "prepare_examples"
+        },
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYour task is to classify a given url into one of the following categories:\nMovie, App, Academic, Channel, Profile, PDF or None based on the text content information.\nThe classification will be based on the url, the webpage text content summary, or both.\n\nuser:\nThe selection range of the value of \"category\" must be within \"Movie\", \"App\", \"Academic\", \"Channel\", \"Profile\", \"PDF\" and \"None\".\nThe selection range of the value of \"evidence\" must be within \"Url\", \"Text content\", and \"Both\".\nHere are a few examples:\n{% for ex in examples %}\nURL: {{ex.url}}\nText content: {{ex.text_content}}\nOUTPUT:\n{\"category\": \"{{ex.category}}\", \"evidence\": \"{{ex.evidence}}\"}\n\n{% endfor %}\n\nFor a given URL and text content, classify the url to complete the category and indicate evidence:\nURL: {{url}}\nText content: {{text_content}}.\nOUTPUT:",
+            "deployment_name": "mahdi-gpt-35-turbo",
+            "examples": [
+              {
+                "url": "https://play.google.com/store/apps/details?id=com.spotify.music",
+                "text_content": "Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.",
+                "category": "App",
+                "evidence": "Both"
+              },
+              {
+                "url": "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw",
+                "text_content": "NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.",
+                "category": "Channel",
+                "evidence": "URL"
+              },
+              {
+                "url": "https://arxiv.org/abs/2303.04671",
+                "text_content": "Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.",
+                "category": "Academic",
+                "evidence": "Text content"
+              },
+              {
+                "url": "https://ab.politiaromana.ro/",
+                "text_content": "There is no content available for this text.",
+                "category": "None",
+                "evidence": "None"
+              }
+            ],
+            "max_tokens": 128,
+            "temperature": 0.2,
+            "text_content": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher.",
+            "url": "https://pypi.org/project/keyring/"
+          },
+          "output": "{\"category\": \"App\", \"evidence\": \"Text content\"}",
+          "start_time": 1692337233.385454,
+          "end_time": 1692337234.028726,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://mahdi-openai.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-03-15-preview",
+                "engine": "mahdi-gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "Your task is to classify a given url into one of the following categories:\nMovie, App, Academic, Channel, Profile, PDF or None based on the text content information.\nThe classification will be based on the url, the webpage text content summary, or both."
+                  },
+                  {
+                    "role": "user",
+                    "content": "The selection range of the value of \"category\" must be within \"Movie\", \"App\", \"Academic\", \"Channel\", \"Profile\", \"PDF\" and \"None\".\nThe selection range of the value of \"evidence\" must be within \"Url\", \"Text content\", and \"Both\".\nHere are a few examples:\nURL: https://play.google.com/store/apps/details?id=com.spotify.music\nText content: Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.\nOUTPUT:\n{\"category\": \"App\", \"evidence\": \"Both\"}\n\nURL: https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw\nText content: NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.\nOUTPUT:\n{\"category\": \"Channel\", \"evidence\": \"URL\"}\n\nURL: https://arxiv.org/abs/2303.04671\nText content: Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.\nOUTPUT:\n{\"category\": \"Academic\", \"evidence\": \"Text content\"}\n\nURL: https://ab.politiaromana.ro/\nText content: There is no content available for this text.\nOUTPUT:\n{\"category\": \"None\", \"evidence\": \"None\"}\n\n\nFor a given URL and text content, classify the url to complete the category and indicate evidence:\nURL: https://pypi.org/project/keyring/\nText content: Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher..\nOUTPUT:"
+                  }
+                ],
+                "temperature": 0.2,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 128,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-7ofxJe3DQFYvVBMq2HtbKeXs4Msyj",
+                "object": "chat.completion",
+                "created": 1692312033,
+                "model": "gpt-35-turbo",
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "{\"category\": \"App\", \"evidence\": \"Text content\"}"
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 14,
+                  "prompt_tokens": 630,
+                  "total_tokens": 644
+                }
+              },
+              "start_time": 1692337233.388982,
+              "end_time": 1692337234.028669,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "classify_with_llm"
+        },
+        {
+          "name": "convert_to_dict",
+          "type": "Tool",
+          "inputs": {
+            "input_str": "{\"category\": \"App\", \"evidence\": \"Text content\"}"
+          },
+          "output": {
+            "category": "App",
+            "evidence": "Text content"
+          },
+          "start_time": 1692337234.029615,
+          "end_time": 1692337234.029845,
+          "error": null,
+          "children": null,
+          "node_name": "convert_to_dict"
+        }
+      ],
+      "variant_id": "",
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "duration": 3.459464,
+        "total_tokens": 1128
+      },
+      "result": {
+        "category": "App",
+        "evidence": "Text content"
+      },
+      "upload_metrics": false
+    }
+  ],
+  "node_runs": [
+    {
+      "node": "fetch_text_content_from_url",
+      "flow_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5",
+      "run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_fetch_text_content_from_url_0",
+      "status": "Completed",
+      "inputs": {
+        "url": "https://pypi.org/project/keyring/"
+      },
+      "output": "\n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_0",
+      "start_time": "2023-08-17T22:40:30.571005Z",
+      "end_time": "2023-08-17T22:40:31.029327Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "fetch_text_content_from_url",
+          "type": "Tool",
+          "inputs": {
+            "url": "https://pypi.org/project/keyring/"
+          },
+          "output": "\n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service",
+          "start_time": 1692337230.571039,
+          "end_time": 1692337231.029253,
+          "error": null,
+          "children": null,
+          "node_name": "fetch_text_content_from_url"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 0.458322
+      },
+      "result": "\n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service"
+    },
+    {
+      "node": "summarize_text_content",
+      "flow_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5",
+      "run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_summarize_text_content_0",
+      "status": "Completed",
+      "inputs": {
+        "prompt": "system:\nPlease summarize the following text in one paragraph. 100 words.\nDo not add any information that is not in the text.\n\nuser:\nText: {{text}}\nSummary: ",
+        "deployment_name": "mahdi-gpt-35-turbo",
+        "max_tokens": 128,
+        "temperature": 0.2,
+        "text": "\n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service"
+      },
+      "output": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher.",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_0",
+      "start_time": "2023-08-17T22:40:31.029772Z",
+      "end_time": "2023-08-17T22:40:33.381048Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nPlease summarize the following text in one paragraph. 100 words.\nDo not add any information that is not in the text.\n\nuser:\nText: {{text}}\nSummary: ",
+            "deployment_name": "mahdi-gpt-35-turbo",
+            "max_tokens": 128,
+            "temperature": 0.2,
+            "text": "\n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service"
+          },
+          "output": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher.",
+          "start_time": 1692337231.029825,
+          "end_time": 1692337233.380434,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://mahdi-openai.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-03-15-preview",
+                "engine": "mahdi-gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "Please summarize the following text in one paragraph. 100 words.\nDo not add any information that is not in the text."
+                  },
+                  {
+                    "role": "user",
+                    "content": "Text: \n\n\n\n\n\n\n\n\nkeyring \u00b7 PyPI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSkip to main content\n\n      Switch to mobile version\n    \n\n\n\n\n\n\n\nWarning\n\nSome features may not work without JavaScript. Please try enabling it if you encounter problems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n      Menu\n      \n\n\n\n\nHelp\nSponsors\nLog in\nRegister\n\n\n\n\n\n\n\n\n\nSearch PyPI\n\n\n\nSearch\n\n\n\n\n\n\n\n\n\n\n        keyring 24.2.0\n      \n\n\npip install keyring\n\n\nCopy PIP instructions\n\n\n\n\n\n\nLatest version\n\n\n        Released: \n  Jun 24, 2023\n\n\n\n\n\n\n\n\n\n\nStore and access your passwords safely.\n\n\n\n\n\n\n\n\n\n\nNavigation\n\n\n\n\n\n                  Project description\n                \n\n\n\n\n                  Release history\n                \n\n\n\n\n                  Download files\n                \n\n\n\n\n\nProject links\n\n\n\nHomepage\n      \n\n\n\n\nStatistics\n\n    GitHub statistics:\n    \n\n\n\nStars:\n\n\n\n\n\n\nForks:\n\n\n\n\n\n\nOpen issues:\n\n\n\n\n\n\nOpen PRs:\n\n\n\n\n\n\n    View statistics for this project via Libraries.io, or by using our public dataset on Google BigQuery\n\n\n\nMeta\nLicense: MIT License\nAuthor: Kang Zhang\nMaintainer: Jason R. Coombs\n\nRequires: Python >=3.8\n  \n\n\nMaintainers\n\n\n\n\n\n\n            jaraco\n          \n\n\n\n\nClassifiers\n\n\nDevelopment Status\n\n\n\n            5 - Production/Stable\n          \n\n\n\n\nIntended Audience\n\n\n\n            Developers\n          \n\n\n\n\nLicense\n\n\n\n            OSI Approved :: MIT License\n          \n\n\n\n\nProgramming Language\n\n\n\n            Python :: 3\n          \n\n\n\n            Python :: 3 :: Only\n          \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                Project description\n              \n\n\n\n\n                Project details\n              \n\n\n\n\n              Release history\n            \n\n\n\n\n                Download files\n              \n\n\n\n\nProject description\n\n\n\n\n\n\n\n\n\n\nThe Python keyring library provides an easy way to access the\nsystem keyring service from python. It can be used in any\napplication that needs safe password storage.\nThese recommended keyring backends are supported:\n\nmacOS Keychain\nFreedesktop Secret Service\nSummary: "
+                  }
+                ],
+                "temperature": 0.2,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 128,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-7ofxHHiDLRDbwlxXouLGjhNVT2fio",
+                "object": "chat.completion",
+                "created": 1692312031,
+                "model": "gpt-35-turbo",
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher."
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 66,
+                  "prompt_tokens": 418,
+                  "total_tokens": 484
+                }
+              },
+              "start_time": 1692337231.030933,
+              "end_time": 1692337233.380282,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "summarize_text_content"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "completion_tokens": 66,
+        "prompt_tokens": 418,
+        "total_tokens": 484,
+        "duration": 2.351276
+      },
+      "result": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher."
+    },
+    {
+      "node": "prepare_examples",
+      "flow_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5",
+      "run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_prepare_examples_0",
+      "status": "Completed",
+      "inputs": {},
+      "output": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.spotify.music",
+          "text_content": "Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.",
+          "category": "App",
+          "evidence": "Both"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw",
+          "text_content": "NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.",
+          "category": "Channel",
+          "evidence": "URL"
+        },
+        {
+          "url": "https://arxiv.org/abs/2303.04671",
+          "text_content": "Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.",
+          "category": "Academic",
+          "evidence": "Text content"
+        },
+        {
+          "url": "https://ab.politiaromana.ro/",
+          "text_content": "There is no content available for this text.",
+          "category": "None",
+          "evidence": "None"
+        }
+      ],
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_0",
+      "start_time": "2023-08-17T22:40:33.383197Z",
+      "end_time": "2023-08-17T22:40:33.384521Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "prepare_examples",
+          "type": "Tool",
+          "inputs": {},
+          "output": [
+            {
+              "url": "https://play.google.com/store/apps/details?id=com.spotify.music",
+              "text_content": "Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.",
+              "category": "App",
+              "evidence": "Both"
+            },
+            {
+              "url": "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw",
+              "text_content": "NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.",
+              "category": "Channel",
+              "evidence": "URL"
+            },
+            {
+              "url": "https://arxiv.org/abs/2303.04671",
+              "text_content": "Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.",
+              "category": "Academic",
+              "evidence": "Text content"
+            },
+            {
+              "url": "https://ab.politiaromana.ro/",
+              "text_content": "There is no content available for this text.",
+              "category": "None",
+              "evidence": "None"
+            }
+          ],
+          "start_time": 1692337233.383295,
+          "end_time": 1692337233.384315,
+          "error": null,
+          "children": null,
+          "node_name": "prepare_examples"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 0.001324
+      },
+      "result": [
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.spotify.music",
+          "text_content": "Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.",
+          "category": "App",
+          "evidence": "Both"
+        },
+        {
+          "url": "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw",
+          "text_content": "NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.",
+          "category": "Channel",
+          "evidence": "URL"
+        },
+        {
+          "url": "https://arxiv.org/abs/2303.04671",
+          "text_content": "Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.",
+          "category": "Academic",
+          "evidence": "Text content"
+        },
+        {
+          "url": "https://ab.politiaromana.ro/",
+          "text_content": "There is no content available for this text.",
+          "category": "None",
+          "evidence": "None"
+        }
+      ]
+    },
+    {
+      "node": "classify_with_llm",
+      "flow_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5",
+      "run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_classify_with_llm_0",
+      "status": "Completed",
+      "inputs": {
+        "prompt": "system:\nYour task is to classify a given url into one of the following categories:\nMovie, App, Academic, Channel, Profile, PDF or None based on the text content information.\nThe classification will be based on the url, the webpage text content summary, or both.\n\nuser:\nThe selection range of the value of \"category\" must be within \"Movie\", \"App\", \"Academic\", \"Channel\", \"Profile\", \"PDF\" and \"None\".\nThe selection range of the value of \"evidence\" must be within \"Url\", \"Text content\", and \"Both\".\nHere are a few examples:\n{% for ex in examples %}\nURL: {{ex.url}}\nText content: {{ex.text_content}}\nOUTPUT:\n{\"category\": \"{{ex.category}}\", \"evidence\": \"{{ex.evidence}}\"}\n\n{% endfor %}\n\nFor a given URL and text content, classify the url to complete the category and indicate evidence:\nURL: {{url}}\nText content: {{text_content}}.\nOUTPUT:",
+        "deployment_name": "mahdi-gpt-35-turbo",
+        "examples": [
+          {
+            "url": "https://play.google.com/store/apps/details?id=com.spotify.music",
+            "text_content": "Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.",
+            "category": "App",
+            "evidence": "Both"
+          },
+          {
+            "url": "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw",
+            "text_content": "NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.",
+            "category": "Channel",
+            "evidence": "URL"
+          },
+          {
+            "url": "https://arxiv.org/abs/2303.04671",
+            "text_content": "Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.",
+            "category": "Academic",
+            "evidence": "Text content"
+          },
+          {
+            "url": "https://ab.politiaromana.ro/",
+            "text_content": "There is no content available for this text.",
+            "category": "None",
+            "evidence": "None"
+          }
+        ],
+        "max_tokens": 128,
+        "temperature": 0.2,
+        "text_content": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher.",
+        "url": "https://pypi.org/project/keyring/"
+      },
+      "output": "{\"category\": \"App\", \"evidence\": \"Text content\"}",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_0",
+      "start_time": "2023-08-17T22:40:33.385319Z",
+      "end_time": "2023-08-17T22:40:34.029067Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYour task is to classify a given url into one of the following categories:\nMovie, App, Academic, Channel, Profile, PDF or None based on the text content information.\nThe classification will be based on the url, the webpage text content summary, or both.\n\nuser:\nThe selection range of the value of \"category\" must be within \"Movie\", \"App\", \"Academic\", \"Channel\", \"Profile\", \"PDF\" and \"None\".\nThe selection range of the value of \"evidence\" must be within \"Url\", \"Text content\", and \"Both\".\nHere are a few examples:\n{% for ex in examples %}\nURL: {{ex.url}}\nText content: {{ex.text_content}}\nOUTPUT:\n{\"category\": \"{{ex.category}}\", \"evidence\": \"{{ex.evidence}}\"}\n\n{% endfor %}\n\nFor a given URL and text content, classify the url to complete the category and indicate evidence:\nURL: {{url}}\nText content: {{text_content}}.\nOUTPUT:",
+            "deployment_name": "mahdi-gpt-35-turbo",
+            "examples": [
+              {
+                "url": "https://play.google.com/store/apps/details?id=com.spotify.music",
+                "text_content": "Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.",
+                "category": "App",
+                "evidence": "Both"
+              },
+              {
+                "url": "https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw",
+                "text_content": "NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.",
+                "category": "Channel",
+                "evidence": "URL"
+              },
+              {
+                "url": "https://arxiv.org/abs/2303.04671",
+                "text_content": "Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.",
+                "category": "Academic",
+                "evidence": "Text content"
+              },
+              {
+                "url": "https://ab.politiaromana.ro/",
+                "text_content": "There is no content available for this text.",
+                "category": "None",
+                "evidence": "None"
+              }
+            ],
+            "max_tokens": 128,
+            "temperature": 0.2,
+            "text_content": "Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher.",
+            "url": "https://pypi.org/project/keyring/"
+          },
+          "output": "{\"category\": \"App\", \"evidence\": \"Text content\"}",
+          "start_time": 1692337233.385454,
+          "end_time": 1692337234.028726,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://mahdi-openai.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-03-15-preview",
+                "engine": "mahdi-gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "Your task is to classify a given url into one of the following categories:\nMovie, App, Academic, Channel, Profile, PDF or None based on the text content information.\nThe classification will be based on the url, the webpage text content summary, or both."
+                  },
+                  {
+                    "role": "user",
+                    "content": "The selection range of the value of \"category\" must be within \"Movie\", \"App\", \"Academic\", \"Channel\", \"Profile\", \"PDF\" and \"None\".\nThe selection range of the value of \"evidence\" must be within \"Url\", \"Text content\", and \"Both\".\nHere are a few examples:\nURL: https://play.google.com/store/apps/details?id=com.spotify.music\nText content: Spotify is a free music and podcast streaming app with millions of songs, albums, and original podcasts. It also offers audiobooks, so users can enjoy thousands of stories. It has a variety of features such as creating and sharing music playlists, discovering new music, and listening to popular and exclusive podcasts. It also has a Premium subscription option which allows users to download and listen offline, and access ad-free music. It is available on all devices and has a variety of genres and artists to choose from.\nOUTPUT:\n{\"category\": \"App\", \"evidence\": \"Both\"}\n\nURL: https://www.youtube.com/channel/UC_x5XG1OV2P6uZZ5FSM9Ttw\nText content: NFL Sunday Ticket is a service offered by Google LLC that allows users to watch NFL games on YouTube. It is available in 2023 and is subject to the terms and privacy policy of Google LLC. It is also subject to YouTube's terms of use and any applicable laws.\nOUTPUT:\n{\"category\": \"Channel\", \"evidence\": \"URL\"}\n\nURL: https://arxiv.org/abs/2303.04671\nText content: Visual ChatGPT is a system that enables users to interact with ChatGPT by sending and receiving not only languages but also images, providing complex visual questions or visual editing instructions, and providing feedback and asking for corrected results. It incorporates different Visual Foundation Models and is publicly available. Experiments show that Visual ChatGPT opens the door to investigating the visual roles of ChatGPT with the help of Visual Foundation Models.\nOUTPUT:\n{\"category\": \"Academic\", \"evidence\": \"Text content\"}\n\nURL: https://ab.politiaromana.ro/\nText content: There is no content available for this text.\nOUTPUT:\n{\"category\": \"None\", \"evidence\": \"None\"}\n\n\nFor a given URL and text content, classify the url to complete the category and indicate evidence:\nURL: https://pypi.org/project/keyring/\nText content: Keyring is a Python library that provides a simple way to access the system keyring service from Python, allowing for safe password storage in any application. It supports recommended keyring backends such as macOS Keychain and Freedesktop Secret Service. The library is licensed under the MIT License and requires Python 3.8 or higher..\nOUTPUT:"
+                  }
+                ],
+                "temperature": 0.2,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 128,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-7ofxJe3DQFYvVBMq2HtbKeXs4Msyj",
+                "object": "chat.completion",
+                "created": 1692312033,
+                "model": "gpt-35-turbo",
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "{\"category\": \"App\", \"evidence\": \"Text content\"}"
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 14,
+                  "prompt_tokens": 630,
+                  "total_tokens": 644
+                }
+              },
+              "start_time": 1692337233.388982,
+              "end_time": 1692337234.028669,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "classify_with_llm"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "completion_tokens": 14,
+        "prompt_tokens": 630,
+        "total_tokens": 644,
+        "duration": 0.643748
+      },
+      "result": "{\"category\": \"App\", \"evidence\": \"Text content\"}"
+    },
+    {
+      "node": "convert_to_dict",
+      "flow_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5",
+      "run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_convert_to_dict_0",
+      "status": "Completed",
+      "inputs": {
+        "input_str": "{\"category\": \"App\", \"evidence\": \"Text content\"}"
+      },
+      "output": {
+        "category": "App",
+        "evidence": "Text content"
+      },
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "37ebd6f7-0bd2-4490-aa91-6eb9ce9304e5_0",
+      "start_time": "2023-08-17T22:40:34.029558Z",
+      "end_time": "2023-08-17T22:40:34.029932Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "convert_to_dict",
+          "type": "Tool",
+          "inputs": {
+            "input_str": "{\"category\": \"App\", \"evidence\": \"Text content\"}"
+          },
+          "output": {
+            "category": "App",
+            "evidence": "Text content"
+          },
+          "start_time": 1692337234.029615,
+          "end_time": 1692337234.029845,
+          "error": null,
+          "children": null,
+          "node_name": "convert_to_dict"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 0.000374
+      },
+      "result": {
+        "category": "App",
+        "evidence": "Text content"
+      }
+    }
+  ]
+}

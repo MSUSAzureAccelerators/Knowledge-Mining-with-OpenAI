@@ -1,0 +1,8 @@
+cryptography==41.0.3
+promptflow==0.1.0b6
+promptflow-tools==0.1.0b6
+promptflow-vectordb
+python-dotenv
+langchain==0.0.149
+jinja2
+ragas

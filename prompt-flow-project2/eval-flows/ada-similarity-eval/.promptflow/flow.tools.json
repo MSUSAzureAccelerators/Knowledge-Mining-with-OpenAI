@@ -1,0 +1,90 @@
+{
+  "package": {
+    "promptflow.tools.embedding.embedding": {
+      "name": "Embedding",
+      "description": "Use Open AI's embedding model to create an embedding vector representing the input text.",
+      "type": "python",
+      "module": "promptflow.tools.embedding",
+      "function": "embedding",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection",
+            "OpenAIConnection"
+          ]
+        },
+        "deployment_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "AzureOpenAIConnection"
+          ],
+          "capabilities": {
+            "completion": false,
+            "chat_completion": false,
+            "embeddings": true
+          },
+          "model_list": [
+            "text-embedding-ada-002",
+            "text-search-ada-doc-001",
+            "text-search-ada-query-001"
+          ]
+        },
+        "model": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "OpenAIConnection"
+          ],
+          "enum": [
+            "text-embedding-ada-002",
+            "text-search-ada-doc-001",
+            "text-search-ada-query-001"
+          ]
+        },
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "package": "promptflow-tools",
+      "package_version": "0.1.0b3"
+    }
+  },
+  "code": {
+    "calculate_accuracy.py": {
+      "type": "python",
+      "inputs": {
+        "grades": {
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "source": "calculate_accuracy.py",
+      "function": "calculate_accuracy"
+    },
+    "cosine_similarity.py": {
+      "type": "python",
+      "inputs": {
+        "groundtruth": {
+          "type": [
+            "object"
+          ]
+        },
+        "prediction": {
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "source": "cosine_similarity.py",
+      "function": "cosine_similarity"
+    }
+  }
+}
