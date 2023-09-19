@@ -345,6 +345,14 @@ The below are troubleshooting steps in case you face any problems with the solut
 <br/>
 <br/>
 
+# Prompt Flow Project
+As part of this solution, we have included an [Azure ML Prompt Flow](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow?view=azureml-api-2) project. 
+
+This is the [Contoso Q&A Chat](./prompt-flow-project/contoso-qna-chat/README.md) that can be served on a RESTful API. We will use this API as part of the Chatbot integration with Power Virtual Agents in the next step.
+
+Make sure to deploy explore and/or deploy this flow using Docker. More details, [here](https://github.com/microsoft/promptflow/blob/main/docs/how-to-guides/deploy-a-flow/deploy-using-docker.md).
+
+
 # Interfacing with the Solution: Chatbot and Postman
 For both cases below, please note that the "BotQnAHTTPFunc" Azure Function returns plain text. This could be easily changed to return the response in JSON format:
 
