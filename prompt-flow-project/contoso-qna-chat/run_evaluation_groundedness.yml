@@ -1,0 +1,8 @@
+$schema: https://azuremlschemas.azureedge.net/promptflow/latest/Run.schema.json
+flow: ../eval-flows/eval-groundedness
+data: data.csv
+run: myrun7 # replace with your run name
+column_mapping:
+  question: ${data.question}
+  answer: ${run.outputs.answer}
+  context: ${run.outputs.context}

@@ -1,0 +1,66 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name":"Python: Current File",
+            "type":"python",
+            "request":"launch",
+            "program":"${file}",
+            "console":"integratedTerminal",
+            "justMyCode":false
+        },
+        {
+            "name": "Python: att qna chat",
+            "type": "python",
+            "request": "launch",
+            "module": "promptflow._cli.pf",
+            "args": [
+                "flow",
+                "test",
+                "--flow",
+                ".",
+                "--interactive",
+                "--verbose"
+            ],
+            "cwd": "${workspaceFolder}/att-qna-chat",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: att qna chat - RAGAS",
+            "type": "python",
+            "request": "launch",
+            "module": "promptflow._cli.pf",
+            "args": [
+                "run",
+                "create",
+                "--file",
+                "run_evaluation_ragas.yml",
+                "--run",
+                "myrun7",
+                "--name",
+                "rag3"
+            ],
+            "cwd": "${workspaceFolder}/att-qna-chat",
+            "justMyCode": false
+        },
+        {
+            "name": "Python: chat with wikipedia",
+            "type": "python",
+            "request": "launch",
+            "module": "promptflow._cli.pf",
+            "args": [
+                "flow",
+                "test",
+                "--flow",
+                ".",
+                "--interactive",
+                "--verbose"
+            ],
+            "cwd": "${workspaceFolder}/chat-with-wikipedia",
+            "justMyCode": false
+        }
+    ]
+}

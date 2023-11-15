@@ -1,0 +1,50 @@
+inputs:
+  groundtruth:
+    type: string
+    description: Please specify the groundtruth column, which contains the true
+      label to the outputs that your flow produces.
+    default: APP
+  prediction:
+    type: string
+    description: Please specify the prediction column, which contains the predicted
+      outputs that your flow produces.
+    default: APP
+outputs:
+  grade:
+    type: string
+    reference: ${cosine_similarity.output}
+nodes:
+- name: cosine_similarity
+  type: python
+  source:
+    type: code
+    path: cosine_similarity.py
+  inputs:
+    groundtruth: ${embed_groundtruth.output}
+    prediction: ${embed_prediction.output}
+- name: calculate_accuracy
+  type: python
+  source:
+    type: code
+    path: calculate_accuracy.py
+  inputs:
+    grades: ${cosine_similarity.output}
+  aggregation: true
+- name: embed_groundtruth
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: azure_open_ai_connection_2
+    deployment_name: text-embedding-ada-002
+    input: ${inputs.groundtruth}
+- name: embed_prediction
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: azure_open_ai_connection_2
+    deployment_name: text-embedding-ada-002
+    input: ${inputs.prediction}

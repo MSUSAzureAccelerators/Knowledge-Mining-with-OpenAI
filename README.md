@@ -345,10 +345,19 @@ The below are troubleshooting steps in case you face any problems with the solut
 <br/>
 <br/>
 
+# Prompt Flow Project
+As part of this solution, we have included an [Azure ML Prompt Flow](https://learn.microsoft.com/en-us/azure/machine-learning/prompt-flow/overview-what-is-prompt-flow?view=azureml-api-2) project. 
+
+This is the [Contoso Q&A Chat](./prompt-flow-project/contoso-qna-chat/README.md) that can be served on a RESTful API. We will use this API as part of the Chatbot integration with Power Virtual Agents in the next step.
+
+Make sure to deploy explore and/or deploy this flow using Docker. More details, [here](https://github.com/microsoft/promptflow/blob/main/docs/how-to-guides/deploy-a-flow/deploy-using-docker.md).
+
+
 # Interfacing with the Solution: Chatbot and Postman
 For both cases below, please note that the "BotQnAHTTPFunc" Azure Function returns plain text. This could be easily changed to return the response in JSON format:
 
-1. In this repo, there's a general guide "[AzureOpenAIandPVAbot.pdf](AzureOpenAIandPVAbot.pdf)" to build chat bots using Power Virtual Agents. This guide can be adapted and used to build a bot that will interface with the already deployed "BotQnAHTTPFunc" Azure Function in the Function App. The returned link for the document below has been hidden:
+1. In this repo, there's a general guide "[AzureOpenAIandPVAbot.pdf](AzureOpenAIandPVAbot.pdf)" to build chat bots using Power Virtual Agents. Thi guide can be adapted and used to build a bot that will interface with the already deployed "BotQnAHTTPFunc" Azure Function in the Function App. However, we provide another guide "[PVAbot.pdf](./PVAbot.pdf)" specifically for this project that can be integrated with a PromptFlow integration with RESTful API.
+The returned link for the document below has been hidden:
     <br/>
     <br />
     <p align="center">

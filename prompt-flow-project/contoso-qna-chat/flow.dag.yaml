@@ -1,0 +1,105 @@
+id: vectordb-html-files-chat-version-sdk
+name: vectordb-html-files-chat version-sdk
+environment:
+  python_requirements_txt: requirements.txt
+inputs:
+  chat_history:
+    type: list
+    default: []
+  chat_input:
+    type: string
+    is_chat_input: true
+    default: how to verify a customer
+outputs:
+  answer:
+    type: string
+    reference: ${chat_with_context.output}
+    is_chat_output: true
+  context:
+    type: string
+    reference: ${generate_prompt_context.output}
+    is_chat_output: false
+nodes:
+- name: search_question_from_indexed_docs
+  type: python
+  source:
+    type: package
+    tool: promptflow_vectordb.tool.vector_db_lookup.VectorDBLookup.search
+  inputs:
+    connection: ACS
+    top_k: 5
+    vector: ${embed_the_question.output}
+    index_name: vec-index
+    vector_field: item_vector
+    text_field: text
+- name: embed_the_question
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    connection: azure_open_ai_connection_2
+    input: ${inputs.chat_input}
+    deployment_name: text-embedding-ada-002
+- name: generate_prompt_context
+  type: python
+  source:
+    type: code
+    path: generate_prompt_context.py
+  inputs:
+    search_result: ${search_question_from_indexed_docs.output}
+- name: Prompt_variants
+  use_variants: true
+- name: chat_with_context
+  type: llm
+  source:
+    type: code
+    path: chat_with_context.jinja2
+  inputs:
+    deployment_name: gpt-35-turbo
+    max_tokens: 1000
+    temperature: 0
+    prompt_text: ${Prompt_variants.output}
+  provider: AzureOpenAI
+  connection: azure_open_ai_connection_2
+  api: chat
+- name: python_node_gd41
+  type: python
+  source:
+    type: code
+    path: python_node_gd41.py
+  inputs: {}
+node_variants:
+  Prompt_variants:
+    default_variant_id: variant_0
+    variants:
+      variant_0:
+        node:
+          type: prompt
+          source:
+            type: code
+            path: Prompt_variants2.jinja2
+          inputs:
+            chat_input: ${inputs.chat_input}
+            contexts: ${generate_prompt_context.output}
+            chat_history: ${inputs.chat_history}
+      variant_1:
+        node:
+          type: prompt
+          source:
+            type: code
+            path: Prompt_variants_variant_1.jinja2
+          inputs:
+            chat_input: ${inputs.chat_input}
+            chat_history: ${inputs.chat_history}
+            contexts: ${generate_prompt_context.output}
+      variant_2:
+        node:
+          type: prompt
+          source:
+            type: code
+            path: Prompt_variants_variant_2.jinja2
+          inputs:
+            contexts: ${generate_prompt_context.output}
+            chat_history: ${inputs.chat_history}
+            chat_input: ${inputs.chat_input}

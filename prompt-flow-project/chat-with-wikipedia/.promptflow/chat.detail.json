@@ -1,0 +1,679 @@
+{
+  "flow_runs": [
+    {
+      "run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_0",
+      "status": "Completed",
+      "error": null,
+      "inputs": {
+        "chat_history": [],
+        "question": "hi"
+      },
+      "output": {
+        "answer": "Hello! How can I help you today?"
+      },
+      "metrics": null,
+      "request": null,
+      "parent_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052",
+      "root_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052",
+      "source_run_id": null,
+      "flow_id": "chat_with_wikipedia",
+      "start_time": "2023-08-17T17:44:10.717269Z",
+      "end_time": "2023-08-17T17:44:37.144199Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are an AI assistant reading the transcript of a conversation between an AI and a human. Given an input question and conversation history, infer user real intent.\n\nThe conversation history is provided just in case of a coreference (e.g. \"What is this?\" where \"this\" is defined in previous conversation).\n\nReturn the output as query used for next round user message.\n\nuser:\nEXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\n\nOutput: directions to Rock Bar\nEND OF EXAMPLE\n\nEXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\nAI: To get to Rock Bar, you need to go to the 52nd floor of the Park A. You can take the subway to Station A and walk for about 8 minutes from exit A53. Alternatively, you can take the train to S Station and walk for about 12 minutes from the south exit3.\nHuman: Show me more restaurants.\n\nOutput: best restaurants nearby\nEND OF EXAMPLE\n\nConversation history (for reference only):\n{% for item in chat_history %}\nHuman: {{item.inputs.question}}\nAI: {{item.outputs.answer}}\n{% endfor %}\nHuman: {{question}}\n\nOutput:\n",
+            "chat_history": [],
+            "deployment_name": "mahdi-gpt-35-turbo",
+            "frequency_penalty": 0.0,
+            "max_tokens": 256,
+            "presence_penalty": 0.0,
+            "question": "hi",
+            "temperature": 0.7,
+            "top_p": 1.0
+          },
+          "output": "Please provide a valid input.",
+          "start_time": 1692319450.718976,
+          "end_time": 1692319452.838306,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://mahdi-openai.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-03-15-preview",
+                "engine": "mahdi-gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are an AI assistant reading the transcript of a conversation between an AI and a human. Given an input question and conversation history, infer user real intent.\n\nThe conversation history is provided just in case of a coreference (e.g. \"What is this?\" where \"this\" is defined in previous conversation).\n\nReturn the output as query used for next round user message."
+                  },
+                  {
+                    "role": "user",
+                    "content": "EXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\n\nOutput: directions to Rock Bar\nEND OF EXAMPLE\n\nEXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\nAI: To get to Rock Bar, you need to go to the 52nd floor of the Park A. You can take the subway to Station A and walk for about 8 minutes from exit A53. Alternatively, you can take the train to S Station and walk for about 12 minutes from the south exit3.\nHuman: Show me more restaurants.\n\nOutput: best restaurants nearby\nEND OF EXAMPLE\n\nConversation history (for reference only):\nHuman: hi\n\nOutput:\n"
+                  }
+                ],
+                "temperature": 0.7,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 256,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-7obKWUDco4lmjOn6GYydonymeHWvm",
+                "object": "chat.completion",
+                "created": 1692294252,
+                "model": "gpt-35-turbo",
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Please provide a valid input."
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 6,
+                  "prompt_tokens": 302,
+                  "total_tokens": 308
+                }
+              },
+              "start_time": 1692319451.466245,
+              "end_time": 1692319452.837899,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "extract_query_from_question"
+        },
+        {
+          "name": "get_wiki_url",
+          "type": "Tool",
+          "inputs": {
+            "count": 2,
+            "entity": "Please provide a valid input."
+          },
+          "output": [
+            "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+            "https://en.wikipedia.org/w/index.php?search=Negative testing"
+          ],
+          "start_time": 1692319452.843524,
+          "end_time": 1692319453.980105,
+          "error": null,
+          "children": null,
+          "node_name": "get_wiki_url"
+        },
+        {
+          "name": "search_result_from_url",
+          "type": "Tool",
+          "inputs": {
+            "count": 10,
+            "url_list": [
+              "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+              "https://en.wikipedia.org/w/index.php?search=Negative testing"
+            ]
+          },
+          "output": [
+            [
+              "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+              "The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition."
+            ],
+            [
+              "https://en.wikipedia.org/w/index.php?search=Negative testing",
+              "Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing."
+            ]
+          ],
+          "start_time": 1692319453.980663,
+          "end_time": 1692319455.053139,
+          "error": null,
+          "children": null,
+          "node_name": "search_result_from_url"
+        },
+        {
+          "name": "process_search_result",
+          "type": "Tool",
+          "inputs": {
+            "search_result": [
+              [
+                "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+                "The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition."
+              ],
+              [
+                "https://en.wikipedia.org/w/index.php?search=Negative testing",
+                "Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing."
+              ]
+            ]
+          },
+          "output": "Content: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing",
+          "start_time": 1692319455.053684,
+          "end_time": 1692319476.452589,
+          "error": null,
+          "children": null,
+          "node_name": "process_search_result"
+        },
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a chatbot having a conversation with a human.\nGiven the following extracted parts of a long document and a question, create a final answer with references (\"SOURCES\").\nIf you don't know the answer, just say that you don't know. Don't try to make up an answer.\nALWAYS return a \"SOURCES\" part in your answer.\n\n{{contexts}}\n\n{% for item in chat_history %}\nuser:\n{{item.inputs.question}}\nassistant:\n{{item.outputs.answer}}\n{% endfor %}\n\nuser:\n{{question}}\n",
+            "chat_history": [],
+            "contexts": "Content: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing",
+            "deployment_name": "mahdi-gpt-35-turbo",
+            "question": "hi",
+            "temperature": 0.8
+          },
+          "output": "Hello! How can I help you today?",
+          "start_time": 1692319476.455434,
+          "end_time": 1692319477.141909,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://mahdi-openai.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-03-15-preview",
+                "engine": "mahdi-gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a chatbot having a conversation with a human.\nGiven the following extracted parts of a long document and a question, create a final answer with references (\"SOURCES\").\nIf you don't know the answer, just say that you don't know. Don't try to make up an answer.\nALWAYS return a \"SOURCES\" part in your answer.\n\nContent: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing"
+                  },
+                  {
+                    "role": "user",
+                    "content": "hi\n"
+                  }
+                ],
+                "temperature": 0.8,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": null,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-7obKuzJAUAQLGQPEbn00n0Vm9XFD1",
+                "object": "chat.completion",
+                "created": 1692294276,
+                "model": "gpt-35-turbo",
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Hello! How can I help you today?"
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 9,
+                  "prompt_tokens": 644,
+                  "total_tokens": 653
+                }
+              },
+              "start_time": 1692319476.468228,
+              "end_time": 1692319477.141757,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "augmented_chat"
+        }
+      ],
+      "variant_id": "",
+      "name": "",
+      "description": "",
+      "tags": null,
+      "system_metrics": {
+        "duration": 26.42693,
+        "total_tokens": 961
+      },
+      "result": {
+        "answer": "Hello! How can I help you today?"
+      },
+      "upload_metrics": false
+    }
+  ],
+  "node_runs": [
+    {
+      "node": "extract_query_from_question",
+      "flow_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052",
+      "run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_extract_query_from_question_0",
+      "status": "Completed",
+      "inputs": {
+        "prompt": "system:\nYou are an AI assistant reading the transcript of a conversation between an AI and a human. Given an input question and conversation history, infer user real intent.\n\nThe conversation history is provided just in case of a coreference (e.g. \"What is this?\" where \"this\" is defined in previous conversation).\n\nReturn the output as query used for next round user message.\n\nuser:\nEXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\n\nOutput: directions to Rock Bar\nEND OF EXAMPLE\n\nEXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\nAI: To get to Rock Bar, you need to go to the 52nd floor of the Park A. You can take the subway to Station A and walk for about 8 minutes from exit A53. Alternatively, you can take the train to S Station and walk for about 12 minutes from the south exit3.\nHuman: Show me more restaurants.\n\nOutput: best restaurants nearby\nEND OF EXAMPLE\n\nConversation history (for reference only):\n{% for item in chat_history %}\nHuman: {{item.inputs.question}}\nAI: {{item.outputs.answer}}\n{% endfor %}\nHuman: {{question}}\n\nOutput:\n",
+        "chat_history": [],
+        "deployment_name": "mahdi-gpt-35-turbo",
+        "frequency_penalty": 0.0,
+        "max_tokens": 256,
+        "presence_penalty": 0.0,
+        "question": "hi",
+        "temperature": 0.7,
+        "top_p": 1.0
+      },
+      "output": "Please provide a valid input.",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_0",
+      "start_time": "2023-08-17T17:44:10.718641Z",
+      "end_time": "2023-08-17T17:44:12.840697Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are an AI assistant reading the transcript of a conversation between an AI and a human. Given an input question and conversation history, infer user real intent.\n\nThe conversation history is provided just in case of a coreference (e.g. \"What is this?\" where \"this\" is defined in previous conversation).\n\nReturn the output as query used for next round user message.\n\nuser:\nEXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\n\nOutput: directions to Rock Bar\nEND OF EXAMPLE\n\nEXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\nAI: To get to Rock Bar, you need to go to the 52nd floor of the Park A. You can take the subway to Station A and walk for about 8 minutes from exit A53. Alternatively, you can take the train to S Station and walk for about 12 minutes from the south exit3.\nHuman: Show me more restaurants.\n\nOutput: best restaurants nearby\nEND OF EXAMPLE\n\nConversation history (for reference only):\n{% for item in chat_history %}\nHuman: {{item.inputs.question}}\nAI: {{item.outputs.answer}}\n{% endfor %}\nHuman: {{question}}\n\nOutput:\n",
+            "chat_history": [],
+            "deployment_name": "mahdi-gpt-35-turbo",
+            "frequency_penalty": 0.0,
+            "max_tokens": 256,
+            "presence_penalty": 0.0,
+            "question": "hi",
+            "temperature": 0.7,
+            "top_p": 1.0
+          },
+          "output": "Please provide a valid input.",
+          "start_time": 1692319450.718976,
+          "end_time": 1692319452.838306,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://mahdi-openai.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-03-15-preview",
+                "engine": "mahdi-gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are an AI assistant reading the transcript of a conversation between an AI and a human. Given an input question and conversation history, infer user real intent.\n\nThe conversation history is provided just in case of a coreference (e.g. \"What is this?\" where \"this\" is defined in previous conversation).\n\nReturn the output as query used for next round user message."
+                  },
+                  {
+                    "role": "user",
+                    "content": "EXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\n\nOutput: directions to Rock Bar\nEND OF EXAMPLE\n\nEXAMPLE\nConversation history:\nHuman: I want to find the best restaurants nearby, could you recommend some?\nAI: Sure, I can help you with that. Here are some of the best restaurants nearby: Rock Bar.\nHuman: How do I get to Rock Bar?\nAI: To get to Rock Bar, you need to go to the 52nd floor of the Park A. You can take the subway to Station A and walk for about 8 minutes from exit A53. Alternatively, you can take the train to S Station and walk for about 12 minutes from the south exit3.\nHuman: Show me more restaurants.\n\nOutput: best restaurants nearby\nEND OF EXAMPLE\n\nConversation history (for reference only):\nHuman: hi\n\nOutput:\n"
+                  }
+                ],
+                "temperature": 0.7,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": 256,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-7obKWUDco4lmjOn6GYydonymeHWvm",
+                "object": "chat.completion",
+                "created": 1692294252,
+                "model": "gpt-35-turbo",
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Please provide a valid input."
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 6,
+                  "prompt_tokens": 302,
+                  "total_tokens": 308
+                }
+              },
+              "start_time": 1692319451.466245,
+              "end_time": 1692319452.837899,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "extract_query_from_question"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "completion_tokens": 6,
+        "prompt_tokens": 302,
+        "total_tokens": 308,
+        "duration": 2.122056
+      },
+      "result": "Please provide a valid input."
+    },
+    {
+      "node": "get_wiki_url",
+      "flow_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052",
+      "run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_get_wiki_url_0",
+      "status": "Completed",
+      "inputs": {
+        "count": 2,
+        "entity": "Please provide a valid input."
+      },
+      "output": [
+        "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+        "https://en.wikipedia.org/w/index.php?search=Negative testing"
+      ],
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_0",
+      "start_time": "2023-08-17T17:44:12.843275Z",
+      "end_time": "2023-08-17T17:44:13.980292Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "get_wiki_url",
+          "type": "Tool",
+          "inputs": {
+            "count": 2,
+            "entity": "Please provide a valid input."
+          },
+          "output": [
+            "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+            "https://en.wikipedia.org/w/index.php?search=Negative testing"
+          ],
+          "start_time": 1692319452.843524,
+          "end_time": 1692319453.980105,
+          "error": null,
+          "children": null,
+          "node_name": "get_wiki_url"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "[2023-08-17T17:44:13+0000] Could not find Please provide a valid input.. Similar ententity: ['INTERCAL', 'Negative testing'].\n",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 1.137017
+      },
+      "result": [
+        "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+        "https://en.wikipedia.org/w/index.php?search=Negative testing"
+      ]
+    },
+    {
+      "node": "search_result_from_url",
+      "flow_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052",
+      "run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_search_result_from_url_0",
+      "status": "Completed",
+      "inputs": {
+        "count": 10,
+        "url_list": [
+          "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+          "https://en.wikipedia.org/w/index.php?search=Negative testing"
+        ]
+      },
+      "output": [
+        [
+          "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+          "The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition."
+        ],
+        [
+          "https://en.wikipedia.org/w/index.php?search=Negative testing",
+          "Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing."
+        ]
+      ],
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_0",
+      "start_time": "2023-08-17T17:44:13.980579Z",
+      "end_time": "2023-08-17T17:44:15.053319Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "search_result_from_url",
+          "type": "Tool",
+          "inputs": {
+            "count": 10,
+            "url_list": [
+              "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+              "https://en.wikipedia.org/w/index.php?search=Negative testing"
+            ]
+          },
+          "output": [
+            [
+              "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+              "The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition."
+            ],
+            [
+              "https://en.wikipedia.org/w/index.php?search=Negative testing",
+              "Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing."
+            ]
+          ],
+          "start_time": 1692319453.980663,
+          "end_time": 1692319455.053139,
+          "error": null,
+          "children": null,
+          "node_name": "search_result_from_url"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 1.07274
+      },
+      "result": [
+        [
+          "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+          "The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition."
+        ],
+        [
+          "https://en.wikipedia.org/w/index.php?search=Negative testing",
+          "Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing."
+        ]
+      ]
+    },
+    {
+      "node": "process_search_result",
+      "flow_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052",
+      "run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_process_search_result_0",
+      "status": "Completed",
+      "inputs": {
+        "search_result": [
+          [
+            "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+            "The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition."
+          ],
+          [
+            "https://en.wikipedia.org/w/index.php?search=Negative testing",
+            "Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing."
+          ]
+        ]
+      },
+      "output": "Content: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_0",
+      "start_time": "2023-08-17T17:44:15.053621Z",
+      "end_time": "2023-08-17T17:44:36.453092Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "process_search_result",
+          "type": "Tool",
+          "inputs": {
+            "search_result": [
+              [
+                "https://en.wikipedia.org/w/index.php?search=INTERCAL",
+                "The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition."
+              ],
+              [
+                "https://en.wikipedia.org/w/index.php?search=Negative testing",
+                "Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing."
+              ]
+            ]
+          },
+          "output": "Content: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing",
+          "start_time": 1692319455.053684,
+          "end_time": 1692319476.452589,
+          "error": null,
+          "children": null,
+          "node_name": "process_search_result"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "duration": 21.399471
+      },
+      "result": "Content: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing"
+    },
+    {
+      "node": "augmented_chat",
+      "flow_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052",
+      "run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_augmented_chat_0",
+      "status": "Completed",
+      "inputs": {
+        "prompt": "system:\nYou are a chatbot having a conversation with a human.\nGiven the following extracted parts of a long document and a question, create a final answer with references (\"SOURCES\").\nIf you don't know the answer, just say that you don't know. Don't try to make up an answer.\nALWAYS return a \"SOURCES\" part in your answer.\n\n{{contexts}}\n\n{% for item in chat_history %}\nuser:\n{{item.inputs.question}}\nassistant:\n{{item.outputs.answer}}\n{% endfor %}\n\nuser:\n{{question}}\n",
+        "chat_history": [],
+        "contexts": "Content: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing",
+        "deployment_name": "mahdi-gpt-35-turbo",
+        "question": "hi",
+        "temperature": 0.8
+      },
+      "output": "Hello! How can I help you today?",
+      "metrics": null,
+      "error": null,
+      "parent_run_id": "aad94b78-11b4-4fac-b3e4-c57ea8312052_0",
+      "start_time": "2023-08-17T17:44:36.454785Z",
+      "end_time": "2023-08-17T17:44:37.143222Z",
+      "index": 0,
+      "api_calls": [
+        {
+          "name": "AzureOpenAI.chat",
+          "type": "Tool",
+          "inputs": {
+            "prompt": "system:\nYou are a chatbot having a conversation with a human.\nGiven the following extracted parts of a long document and a question, create a final answer with references (\"SOURCES\").\nIf you don't know the answer, just say that you don't know. Don't try to make up an answer.\nALWAYS return a \"SOURCES\" part in your answer.\n\n{{contexts}}\n\n{% for item in chat_history %}\nuser:\n{{item.inputs.question}}\nassistant:\n{{item.outputs.answer}}\n{% endfor %}\n\nuser:\n{{question}}\n",
+            "chat_history": [],
+            "contexts": "Content: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing",
+            "deployment_name": "mahdi-gpt-35-turbo",
+            "question": "hi",
+            "temperature": 0.8
+          },
+          "output": "Hello! How can I help you today?",
+          "start_time": 1692319476.455434,
+          "end_time": 1692319477.141909,
+          "error": null,
+          "children": [
+            {
+              "name": "openai.api_resources.chat_completion.ChatCompletion.create",
+              "type": "LLM",
+              "inputs": {
+                "api_base": "https://mahdi-openai.openai.azure.com/",
+                "api_type": "azure",
+                "api_version": "2023-03-15-preview",
+                "engine": "mahdi-gpt-35-turbo",
+                "messages": [
+                  {
+                    "role": "system",
+                    "content": "You are a chatbot having a conversation with a human.\nGiven the following extracted parts of a long document and a question, create a final answer with references (\"SOURCES\").\nIf you don't know the answer, just say that you don't know. Don't try to make up an answer.\nALWAYS return a \"SOURCES\" part in your answer.\n\nContent: The Compiler Language With No Pronounceable Acronym (INTERCAL) is an esoteric programming language that was created as a parody by Don Woods and James M. Lyon\u00a0[ru], two Princeton University students, in 1972. It satirizes aspects of the various programming languages at the time,[1] as well as the proliferation of proposed language constructs and notations in the 1960s.. There are two maintained implementations of INTERCAL dialects: C-INTERCAL (created in 1990), maintained by Eric S. Raymond[2] and Alex Smith,[3] and CLC-INTERCAL, maintained by Claudio Calvelli.[4]. According to the original manual by the authors,[5]. The full name of the compiler is \"Compiler Language With No Pronounceable Acronym\", which is, for obvious reasons, abbreviated \"INTERCAL\".. The original Princeton implementation used punched cards and the EBCDIC character set. To allow INTERCAL to run on computers using ASCII, substitutions for two characters had to be made: $ substituted for \u00a2 as the mingle operator, \"represent[ing] the increasing cost of software in relation to hardware\", and ? was substituted for \u22bb as the unary exclusive-or operator to \"correctly express the average person's reaction on first encountering exclusive-or\".[5] In recent versions of C-INTERCAL, the older operators are supported as alternatives; INTERCAL programs may now be encoded in ASCII, Latin-1, or UTF-8.[6]. C-INTERCAL swaps the major and minor version numbers, compared to tradition.\nSource: https://en.wikipedia.org/w/index.php?search=INTERCAL\n\nContent: Negative testing is a method of testing an application or system that ensures that the plot of the application is according to the requirements and can handle the unwanted input and user behavior.[1] Invalid data is inserted to compare the output against the given input. Negative testing is also known as failure testing or error path testing. When performing negative testing exceptions are expected. This shows that the application is able to handle improper user behavior. Users input values that do not work in the system to test its ability to handle incorrect values or system failure.. Negative testing is done to check that the product deals properly with the circumstance for which it is not programmed. The fundamental aim of this testing is to check how bad data is taken care of by the systems, and appropriate errors are shown to the client when bad data is entered. Both positive and negative testing play an important role. Positive testing ensures that the application does what it is implied for and performs each function as expected. Negative testing is opposite of positive testing.\nSource: https://en.wikipedia.org/w/index.php?search=Negative testing"
+                  },
+                  {
+                    "role": "user",
+                    "content": "hi\n"
+                  }
+                ],
+                "temperature": 0.8,
+                "top_p": 1.0,
+                "n": 1,
+                "stream": false,
+                "stop": null,
+                "max_tokens": null,
+                "presence_penalty": 0.0,
+                "frequency_penalty": 0.0,
+                "logit_bias": {},
+                "user": ""
+              },
+              "output": {
+                "id": "chatcmpl-7obKuzJAUAQLGQPEbn00n0Vm9XFD1",
+                "object": "chat.completion",
+                "created": 1692294276,
+                "model": "gpt-35-turbo",
+                "choices": [
+                  {
+                    "index": 0,
+                    "finish_reason": "stop",
+                    "message": {
+                      "role": "assistant",
+                      "content": "Hello! How can I help you today?"
+                    }
+                  }
+                ],
+                "usage": {
+                  "completion_tokens": 9,
+                  "prompt_tokens": 644,
+                  "total_tokens": 653
+                }
+              },
+              "start_time": 1692319476.468228,
+              "end_time": 1692319477.141757,
+              "error": null,
+              "children": null,
+              "node_name": null
+            }
+          ],
+          "node_name": "augmented_chat"
+        }
+      ],
+      "variant_id": "",
+      "cached_run_id": null,
+      "cached_flow_run_id": null,
+      "logs": {
+        "stdout": "",
+        "stderr": ""
+      },
+      "system_metrics": {
+        "completion_tokens": 9,
+        "prompt_tokens": 644,
+        "total_tokens": 653,
+        "duration": 0.688437
+      },
+      "result": "Hello! How can I help you today?"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+inputs:
+  chat_history:
+    type: list
+    default: []
+  question:
+    type: string
+    is_chat_input: true
+outputs:
+  answer:
+    type: string
+    reference: ${chat.output}
+    is_chat_output: true
+nodes:
+- name: embed_the_question
+  type: python
+  source:
+    type: package
+    tool: promptflow.tools.embedding.embedding
+  inputs:
+    input: ${flow.question}
+    deployment_name: mahdi-text-embedding-ada
+    connection: azure_open_ai_connection
+- name: search_question_from_indexed_docs
+  tool: VectorIndexLookup.search
+  api: search
+  source:
+    type: code
+    path: search_question_from_indexed_docs.py
+  inputs:
+    query: ${flow.question}
+    path: azureml://subscriptions/faa378a3-1ed6-4d7c-9374-23527c3628e9/resourcegroups/rg-mahdi-temp/providers/Microsoft.MachineLearningServices/workspaces/MahdiWS-USEast/data/vector_db_index_html_files/versions/1
+    top_k: 3
+- name: chat
+  type: llm
+  source:
+    type: code
+    path: chat.jinja2
+  inputs:
+    deployment_name: mahdi-gpt-35-turbo
+    max_tokens: '256'
+    temperature: '0.7'
+    chat_history: ${inputs.chat_history}
+    question: ${inputs.question}
+  api: chat
+  provider: AzureOpenAI
+  connection: azure_open_ai_connection
+id: template_chat_flow
+name: Template Chat Flow
+environment:
+  python_requirements_txt: requirements.txt

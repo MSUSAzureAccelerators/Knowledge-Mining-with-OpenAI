@@ -1,0 +1,40 @@
+{
+  "nodeLayouts": {
+    "inputs": {
+      "x": 187,
+      "y": 62,
+      "index": -1
+    },
+    "outputs": {
+      "x": 472.4453125,
+      "y": 333.171875,
+      "index": -1
+    },
+    "parse_score": {
+      "x": 327.1328125,
+      "y": 268.1171875,
+      "index": -1
+    },
+    "aggregate": {
+      "x": 33.125,
+      "y": 365.5078125,
+      "index": 0
+    },
+    "gpt_groundedness": {
+      "x": 288.296875,
+      "y": 171.7734375,
+      "index": -1
+    },
+    "ragas_metrics": {
+      "x": 271.484375,
+      "y": 446.1796875,
+      "index": -1
+    },
+    "calculate_rag_metrics": {
+      "x": 126.7890625,
+      "y": 197.4609375,
+      "index": 1
+    }
+  },
+  "orientation": "Vertical"
+}

@@ -1,0 +1,302 @@
+{
+  "package": {
+    "promptflow.tools.embedding.embedding": {
+      "name": "Embedding",
+      "description": "Use Open AI's embedding model to create an embedding vector representing the input text.",
+      "type": "python",
+      "module": "promptflow.tools.embedding",
+      "function": "embedding",
+      "inputs": {
+        "connection": {
+          "type": [
+            "AzureOpenAIConnection",
+            "OpenAIConnection"
+          ]
+        },
+        "deployment_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "AzureOpenAIConnection"
+          ],
+          "capabilities": {
+            "completion": false,
+            "chat_completion": false,
+            "embeddings": true
+          },
+          "model_list": [
+            "text-embedding-ada-002",
+            "text-search-ada-doc-001",
+            "text-search-ada-query-001"
+          ]
+        },
+        "model": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "OpenAIConnection"
+          ],
+          "enum": [
+            "text-embedding-ada-002",
+            "text-search-ada-doc-001",
+            "text-search-ada-query-001"
+          ]
+        },
+        "input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "package": "promptflow-tools",
+      "package_version": "0.1.0b6"
+    },
+    "promptflow_vectordb.tool.vector_db_lookup.VectorDBLookup.search": {
+      "name": "Vector DB Lookup",
+      "description": "Search vector based query from existing Vector Database.",
+      "type": "python",
+      "module": "promptflow_vectordb.tool.vector_db_lookup",
+      "class_name": "VectorDBLookup",
+      "function": "search",
+      "inputs": {
+        "connection": {
+          "type": [
+            "CognitiveSearchConnection",
+            "QdrantConnection",
+            "WeaviateConnection"
+          ]
+        },
+        "index_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "CognitiveSearchConnection"
+          ]
+        },
+        "collection_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "QdrantConnection"
+          ]
+        },
+        "class_name": {
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "WeaviateConnection"
+          ]
+        },
+        "text_field": {
+          "default": null,
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "CognitiveSearchConnection",
+            "QdrantConnection",
+            "WeaviateConnection"
+          ]
+        },
+        "vector_field": {
+          "default": null,
+          "type": [
+            "string"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "CognitiveSearchConnection"
+          ]
+        },
+        "search_params": {
+          "default": null,
+          "type": [
+            "object"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "CognitiveSearchConnection",
+            "QdrantConnection"
+          ]
+        },
+        "search_filters": {
+          "default": null,
+          "type": [
+            "object"
+          ],
+          "enabled_by": "connection",
+          "enabled_by_type": [
+            "CognitiveSearchConnection",
+            "QdrantConnection"
+          ]
+        },
+        "vector": {
+          "type": [
+            "list"
+          ]
+        },
+        "top_k": {
+          "default": "3",
+          "type": [
+            "int"
+          ]
+        }
+      },
+      "package": "promptflow-vectordb",
+      "package_version": "0.1.1"
+    }
+  },
+  "code": {
+    "generate_prompt_context.py": {
+      "type": "python",
+      "inputs": {
+        "search_result": {
+          "type": [
+            "object"
+          ]
+        }
+      },
+      "source": "generate_prompt_context.py",
+      "function": "generate_prompt_context"
+    },
+    "chat_with_context.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "prompt_text": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "chat_with_context.jinja2"
+    },
+    "Prompt_variants2.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "contexts": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "Prompt_variants2.jinja2"
+    },
+    "Prompt_variants2_variant_1.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "contexts": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "Prompt_variants_variant_1.jinja2"
+    },
+    "Prompt_variants2_variant_2.jinja2": {
+      "type": "llm",
+      "inputs": {
+        "contexts": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "Prompt_variants_variant_2.jinja2"
+    },
+    "Prompt_variants_variant_1.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "contexts": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "Prompt_variants_variant_1.jinja2"
+    },
+    "Prompt_variants_variant_2.jinja2": {
+      "type": "prompt",
+      "inputs": {
+        "contexts": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_history": {
+          "type": [
+            "string"
+          ]
+        },
+        "chat_input": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "Prompt_variants_variant_2.jinja2"
+    },
+    "python_node_gd41.py": {
+      "type": "python",
+      "inputs": {
+        "input1": {
+          "type": [
+            "string"
+          ]
+        }
+      },
+      "source": "python_node_gd41.py",
+      "function": "my_python_tool"
+    }
+  }
+}
