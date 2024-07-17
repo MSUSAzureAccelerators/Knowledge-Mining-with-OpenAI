@@ -51,7 +51,7 @@ The below are the features of this solution:
 
 1. Redis is used only to cache some intermediate results, as well as caching the user conversation history. However, the user can choose to skip Redis provisioning completely by keeping `REDIS_ADDR` blank in the configuration. This means that the session history cannot be cached, and each query/question is independent of the previous ones. 
 
-1. Added filtering support in the Bot HTTP request API. This would be useful for things like multi-tenant demos, and filtering on docuemnts with an original source language. Use `"filter":"@field:value"` in the HTTP request e.g. `"filter":"@orig_lang:en"`.
+1. Added filtering support in the Bot HTTP request API. This would be useful for things like multi-tenant demos, and filtering on documents with an original source language. Use `"filter":"@field:value"` in the HTTP request e.g. `"filter":"@orig_lang:en"`.
 
 1. Automatic segmenting / chunking of documents with overlap based on the specified number(s) of tokens for each OpenAI model to generate embeddings.
  
