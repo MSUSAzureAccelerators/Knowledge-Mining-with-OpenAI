@@ -51,7 +51,7 @@ The below are the features of this solution:
 
 1. Redis is used only to cache some intermediate results, as well as caching the user conversation history. However, the user can choose to skip Redis provisioning completely by keeping `REDIS_ADDR` blank in the configuration. This means that the session history cannot be cached, and each query/question is independent of the previous ones. 
 
-1. Added filtering support in the Bot HTTP request API. This would be useful for things like multi-tenant demos, and filtering on docuemnts with an original source language. Use `"filter":"@field:value"` in the HTTP request e.g. `"filter":"@orig_lang:en"`.
+1. Added filtering support in the Bot HTTP request API. This would be useful for things like multi-tenant demos, and filtering on documents with an original source language. Use `"filter":"@field:value"` in the HTTP request e.g. `"filter":"@orig_lang:en"`.
 
 1. Automatic segmenting / chunking of documents with overlap based on the specified number(s) of tokens for each OpenAI model to generate embeddings.
  
@@ -324,7 +324,6 @@ The ARM template is not fully automated (yet), so a few manual steps will have t
 # Knowledge Base - Web Pages
 Cognitive Search should be able to ingest a wide variety of document formats, such as Word documents, PDFs, Excel and CSV files, JSON files, etc.. When it comes to Knowledge Base, a common ask might be to include web pages as well. If the data cannot be easily downloaded, then there are two options:
 1. Cognitive Search have a few [connectors](https://learn.microsoft.com/en-us/azure/search/search-data-sources-gallery) for web crawling, such as: [Selenium](https://contentanalytics.digital.accenture.com/display/aspire40/Selenium+Crawler) and [Aspider](https://contentanalytics.digital.accenture.com/display/aspire40/Aspider+Web+Crawler)
-1. The OpenAI Cookbook has an [example notebook](https://github.com/openai/openai-cookbook/tree/main/apps/web-crawl-q-and-a) about crawling web pages with BeaufitulSoup
 
 <br/>
 <br/>
